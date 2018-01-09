@@ -1,2 +1,37 @@
-<!--pages/index/index.wxml-->
-<text>pages/index/index.wxml</text>
+<swiper
+  class="swiper"
+  indicator-dots
+  indicator-color="rgba(255, 255, 255, 0.2)"
+  indicator-active-color="rgba(255, 255, 255, 0.6)"
+  duration="350"
+>
+  <swiper-item>
+    <template is="dashboard" />
+  </swiper-item>
+  <swiper-item>
+    <text>hey man!</text>
+  </swiper-item>
+</swiper>
+
+<template name="dashboard">
+  <view class="dashboard-container" animation="">
+    <view class="kent-container">
+      <image class="kent-avatar" src="http://www.felix-having.fun/resources/life/imgs/kent-avatar-2.jpg" />
+      <view class="kent-notice-container">
+        <text class="kent-name">Kent</text>
+        <text class="kent-notice">Hey Felix，别来无恙。</text>
+      </view>
+    </view>
+    <scroll-view class="funcards-container" scroll-y enable-back-to-top>
+      <view class="funcard weather">
+        天气
+      </view>
+      <view class="funcard fortune">
+        运势
+      </view>
+      <view class="funcard joke">
+        笑话
+      </view>
+    </scroll-view>
+  </view>
+</template>

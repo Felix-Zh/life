@@ -3,7 +3,7 @@
     <image src="http://www.felix-having.fun/resources/life/imgs/sight.jpg" mode="aspectFill" class="sight" />
   </view>
   <view class="main" bind:tap="handleSightTap">
-    <image class="kent-avatar" src="http://www.felix-having.fun/resources/life/imgs/kent.jpg" />
+    <image class="kent-avatar" src="http://www.felix-having.fun/resources/life/imgs/kent-avatar-1.jpg" />
     <view class="text-container">
       <view class="greeting">一日不见，过得怎么样朋友？</view>
       <view class="kent-signature">- From Kent -</view>
