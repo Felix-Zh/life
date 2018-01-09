@@ -1,11 +1,11 @@
 {
-  "pages":[
-    "pages/index/index"
+  "pages": [
+    "pages/greeting/greeting"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#000",
     "navigationBarTitleText": "Life",
-    "navigationBarTextStyle":"white"
+    "navigationBarTextStyle": "white"
   }
 }
