@@ -1,6 +1,7 @@
 {
   "pages": [
-    "pages/greeting/greeting"
+    "pages/greeting/greeting",
+    "pages/index/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
