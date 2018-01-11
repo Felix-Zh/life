@@ -1,18 +1,21 @@
-// pages/index/index.js
+import bmap from '../../libs/bmap-wx.min.js';
+import { BAIDU_MAP_API_APP_KEY } from '../../constants/index.js';
+
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    weatherData: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    this.getWeather();
   },
 
   /**
@@ -43,24 +46,21 @@ Page({
   
   },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
+  getWeather() {
+    const BMap = new bmap.BMapWX({
+        ak: BAIDU_MAP_API_APP_KEY
+    });
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
+    BMap.weather({
+        fail: err => {
+          this.setData({ weatherData: { err: true, message: err } });
+        },
+        success: ({ currentWeather }) => {
+          const [weatherData] = currentWeather;
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
+          console.log(weatherData)
+          this.setData({ weatherData });
+        }
+    });
   }
 })

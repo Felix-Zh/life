@@ -6,7 +6,7 @@
   duration="350"
 >
   <swiper-item>
-    <template is="dashboard" />
+    <template is="dashboard" data="{{...weatherData}}" />
   </swiper-item>
   <swiper-item>
     <text>hey man!</text>
@@ -16,7 +16,7 @@
 <template name="dashboard">
   <view class="dashboard-container" animation="">
     <view class="kent-container">
-      <image class="kent-avatar" src="http://www.felix-having.fun/resources/life/imgs/kent-avatar-2.jpg" />
+      <image class="kent-avatar" src="http://67.218.136.204/resources/life/imgs/kent-avatar-2.jpg" />
       <view class="kent-notice-container">
         <text class="kent-name">Kent</text>
         <text class="kent-notice">Hey Felix，别来无恙。</text>
@@ -25,6 +25,11 @@
     <scroll-view class="funcards-container" scroll-y enable-back-to-top>
       <view class="funcard weather">
         天气
+        <view>{{currentCity}}</view>
+        <view>{{temperature}}</view>
+        <view>{{weatherDesc}}</view>
+        <view>{{wind}}</view>
+        <view>{{pm25}}</view>
       </view>
       <view class="funcard fortune">
         运势

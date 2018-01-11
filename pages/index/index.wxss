@@ -56,6 +56,11 @@ page {
   padding: 20rpx;
   min-height: 300rpx;
   border-radius: 8px;
+  transition: transform 0.2s ease;
+}
+
+.funcard:active {
+  transform: scale(0.96);
 }
 
 .funcard.weather {
