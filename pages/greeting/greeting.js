@@ -22,7 +22,7 @@ Page({
   redirectToIndex() {
     this.setData({ pageTransitionData: fade.out().export() });
     setTimeout(() => {
-      wx.navigateTo({ url: '/pages/index/index' });
+      wx.redirectTo({ url: '/pages/index/index' });
     }, PAGE_TRANSITION_ANIMATION_DURATION);
   }
 });

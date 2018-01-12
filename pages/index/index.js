@@ -58,7 +58,6 @@ Page({
         success: ({ currentWeather }) => {
           const [weatherData] = currentWeather;
 
-          console.log(weatherData)
           this.setData({ weatherData });
         }
     });
