@@ -1,6 +1,7 @@
 import { getWeather } from '../../service/weather/index.js';
+import { getFortune } from '../../service/fortune/index.js';
 import { promisify } from '../../utils/utils.js';
-import { WEATHER_BG_CLASS_NAME } from './constants.js';
+import { WEATHER_BG_CLASS_NAME, HOROSCOPE } from './constants.js';
 
 
 Page({
@@ -9,7 +10,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    weather: null
+    weather: null,
+    fortune: null
   },
 
   /**
@@ -17,6 +19,7 @@ Page({
    */
   onLoad: function (options) {
     this.getLocationAndWeather();
+    this.getFortune();
   },
 
   /**
@@ -59,6 +62,11 @@ Page({
           weatherClassName: getWeatherClassName(+now.cond_code)
         }});
       });
+  },
+
+  getFortune() {
+    getFortune(HOROSCOPE)
+      .then(res => this.setData({ fortune: res }))
   }
 });
 

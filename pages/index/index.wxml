@@ -8,7 +8,7 @@
   duration="350"
 >
   <swiper-item>
-    <template is="dashboard" data="{{ ...weather }}" />
+    <template is="dashboard" data="{{ weather, fortune }}" />
   </swiper-item>
   <swiper-item>
     <text>hey man!</text>

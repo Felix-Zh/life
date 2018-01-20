@@ -4,3 +4,5 @@ export const WEATHER_BG_CLASS_NAME = {
   white: [400, 401, 402, 403, 404, 405, 406, 407],
   yellow: [503, 504, 507, 508]
 };
+
+export const HOROSCOPE = '天秤座';

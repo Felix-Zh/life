@@ -1,5 +1,5 @@
 /**app.wxss**/
 view, text, image {
-  color: #333;
+  color: #fff;
   box-sizing: border-box;
 }

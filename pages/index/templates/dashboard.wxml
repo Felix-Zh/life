@@ -8,28 +8,37 @@
       </view>
     </view>
     <scroll-view class="funcards-container" scroll-y enable-back-to-top>
-      <view class="funcard weather {{weatherClassName}}">
+      <view class="funcard weather {{weather.weatherClassName}}">
         <image
-          wx:if="{{cond_code}}"
+          wx:if="{{weather.cond_code}}"
           class="weather-icon"
-          src="http://67.218.136.204/resources/life/imgs/weather/{{cond_code}}.png"
+          src="http://67.218.136.204/resources/life/imgs/weather/{{weather.cond_code}}.png"
         />
-        <view class="weather-info" wx:if="{{tmp}}">
+        <view class="weather-info" wx:if="{{weather.tmp}}">
           <view>
-            <text class="tmp">{{tmp}}°</text>
-            <text class="weather-desc">{{cond_txt}}</text>
+            <text class="tmp">{{weather.tmp}}°</text>
+            <text class="weather-desc">{{weather.cond_txt}}</text>
           </view>
-          <view>{{location.parent_city}} {{location.location}}</view>
-          <view>
-            {{wind_sc}}
-            {{wind_dir}}
-            相对湿度{{hum}}
-            体感温度{{fl}}°
-          </view>
+          <view>{{weather.location.parent_city}} {{weather.location.location}}</view>
+          <view>{{weather.wind_sc}} {{weather.wind_dir}} 相对湿度{{weather.hum}} 体感温度{{weather.fl}}°</view>
         </view>
       </view>
       <view class="funcard fortune">
-        运势
+        <view class="fortune-galaxy" />
+        <view class="horoscope-info">
+          <view class="horoscope-icon" />
+          <text class="horoscope-name">天秤座 | Libra</text>
+        </view>
+        <view class="fortune-info">
+          <view class="fortune-all">运气值 {{fortune.all}}</view>
+          <view class="fortune-grade-container">
+            <view class="fortune-grade-item" wx:for="{{['love', 'health', 'money', 'work']}}" wx:key="item">
+              <image src="http://67.218.136.204/resources/life/imgs/fortune-{{item}}.png" />
+              <text>{{fortune[item]}}</text>
+            </view>
+          </view>
+          <view class="fortune-summary">{{fortune.summary}}</view>
+        </view>
       </view>
       <view class="funcard joke">
         笑话
