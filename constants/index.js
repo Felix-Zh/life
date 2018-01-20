@@ -2,4 +2,4 @@ export const NETWORK = {
   server: 'http://www.felix-having.fun/wxapi'
 };
 
-export const BAIDU_MAP_API_APP_KEY = 'oYX2GWoGL3LSuTr50QKPepmHT2KEk4hh';
+export const HE_WEATHER_APP_KEY = '4eb453970909408ab7bcd2436c4ed5cb';

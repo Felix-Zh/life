@@ -1,0 +1,39 @@
+<template name="dashboard">
+  <view class="dashboard-container" animation="">
+    <view class="kent-container">
+      <image class="kent-avatar" src="http://67.218.136.204/resources/life/imgs/kent-avatar-2.jpg" />
+      <view class="kent-notice-container">
+        <text class="kent-name">Kent</text>
+        <text class="kent-notice">Hey Felix，别来无恙。</text>
+      </view>
+    </view>
+    <scroll-view class="funcards-container" scroll-y enable-back-to-top>
+      <view class="funcard weather {{weatherClassName}}">
+        <image
+          wx:if="{{cond_code}}"
+          class="weather-icon"
+          src="http://67.218.136.204/resources/life/imgs/weather/{{cond_code}}.png"
+        />
+        <view class="weather-info" wx:if="{{tmp}}">
+          <view>
+            <text class="tmp">{{tmp}}°</text>
+            <text class="weather-desc">{{cond_txt}}</text>
+          </view>
+          <view>{{location.parent_city}} {{location.location}}</view>
+          <view>
+            {{wind_sc}}
+            {{wind_dir}}
+            相对湿度{{hum}}
+            体感温度{{fl}}°
+          </view>
+        </view>
+      </view>
+      <view class="funcard fortune">
+        运势
+      </view>
+      <view class="funcard joke">
+        笑话
+      </view>
+    </scroll-view>
+  </view>
+</template>

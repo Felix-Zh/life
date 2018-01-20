@@ -1,3 +1,5 @@
+<import src="./templates/dashboard.wxml"/>
+
 <swiper
   class="swiper"
   indicator-dots
@@ -6,37 +8,9 @@
   duration="350"
 >
   <swiper-item>
-    <template is="dashboard" data="{{...weatherData}}" />
+    <template is="dashboard" data="{{ ...weather }}" />
   </swiper-item>
   <swiper-item>
     <text>hey man!</text>
   </swiper-item>
 </swiper>
-
-<template name="dashboard">
-  <view class="dashboard-container" animation="">
-    <view class="kent-container">
-      <image class="kent-avatar" src="http://67.218.136.204/resources/life/imgs/kent-avatar-2.jpg" />
-      <view class="kent-notice-container">
-        <text class="kent-name">Kent</text>
-        <text class="kent-notice">Hey Felix，别来无恙。</text>
-      </view>
-    </view>
-    <scroll-view class="funcards-container" scroll-y enable-back-to-top>
-      <view class="funcard weather">
-        天气
-        <view>{{currentCity}}</view>
-        <view>{{temperature}}</view>
-        <view>{{weatherDesc}}</view>
-        <view>{{wind}}</view>
-        <view>{{pm25}}</view>
-      </view>
-      <view class="funcard fortune">
-        运势
-      </view>
-      <view class="funcard joke">
-        笑话
-      </view>
-    </scroll-view>
-  </view>
-</template>

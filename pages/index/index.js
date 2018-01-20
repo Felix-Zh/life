@@ -1,5 +1,6 @@
-import bmap from '../../libs/bmap-wx.min.js';
-import { BAIDU_MAP_API_APP_KEY } from '../../constants/index.js';
+import { getWeather } from '../../service/weather/index.js';
+import { promisify } from '../../utils/utils.js';
+import { WEATHER_BG_CLASS_NAME } from './constants.js';
 
 
 Page({
@@ -8,14 +9,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-    weatherData: {}
+    weather: null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getWeather();
+    this.getLocationAndWeather();
   },
 
   /**
@@ -46,20 +47,21 @@ Page({
   
   },
 
-  getWeather() {
-    const BMap = new bmap.BMapWX({
-        ak: BAIDU_MAP_API_APP_KEY
-    });
-
-    BMap.weather({
-        fail: err => {
-          this.setData({ weatherData: { err: true, message: err } });
-        },
-        success: ({ currentWeather }) => {
-          const [weatherData] = currentWeather;
-
-          this.setData({ weatherData });
-        }
-    });
+  getLocationAndWeather() {
+    promisify(wx.getLocation)()
+      .then(location => {
+        return getWeather(`${location.latitude},${location.longitude}`);
+      })
+      .then(({ basic, now }) => {
+        this.setData({ weather: {
+          ...now,
+          location: basic,
+          weatherClassName: getWeatherClassName(+now.cond_code)
+        }});
+      });
   }
-})
+});
+
+const getWeatherClassName = condCode =>
+  Object.keys(WEATHER_BG_CLASS_NAME).find(key => WEATHER_BG_CLASS_NAME[key].includes(condCode)) ||
+  'default';

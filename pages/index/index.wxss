@@ -1,6 +1,6 @@
 page {
   height: 100%;  
-  background: #000;
+  background: #fcfcfc;
 }
 
 .swiper {
@@ -22,7 +22,7 @@ page {
   justify-content: flex-start;
   align-items: center;
   border-radius: 8px;
-  background: #151515;
+  background: #232922;
 }
 
 .kent-avatar {
@@ -37,13 +37,14 @@ page {
 }
 
 .kent-name {
-  color: #888;
+  color: #53b234;
   font-size: 28rpx;
   font-weight: bold;
   line-height: 0.8em;
 }
 
 .kent-notice {
+  color: #fff;
   font-size: 40rpx;
 }
 
@@ -56,15 +57,6 @@ page {
   padding: 20rpx;
   min-height: 300rpx;
   border-radius: 8px;
-  transition: transform 0.2s ease;
-}
-
-.funcard:active {
-  transform: scale(0.96);
-}
-
-.funcard.weather {
-  background: linear-gradient(to top right, rgb(33, 125, 182), #124e74);
 }
 
 .funcard.fortune {
@@ -73,4 +65,51 @@ page {
 
 .funcard.joke {
   background: linear-gradient(to top right, rgb(197, 143, 63), #a76b0c);
+}
+
+.weather {
+  display: flex;
+  align-items: center;
+}
+
+.weather.default {
+  background: linear-gradient(to top right, rgb(149, 239, 255), #3ec8ff);
+}
+
+.weather.gray {
+  background: linear-gradient(to top right, rgb(197, 197, 197), #7a7a7a);
+}
+
+.weather.white {
+  background: linear-gradient(to top right, rgb(238, 238, 238), #e2e2e2);
+}
+
+.weather.yellow {
+  background: linear-gradient(to top right, rgb(192, 185, 170), rgb(119, 112, 95));
+}
+
+.weather-icon {
+  margin: 0 60rpx 0 50rpx;
+  width: 150rpx;
+  height: 150rpx;
+}
+
+.weather-info view,
+.weather-info text {
+  color: #fff;
+  font-size: 24rpx;
+}
+
+.weather.white .weather-info view,
+.weather.white .weather-info text {
+  color: #666;
+}
+
+.tmp {
+  font-size: 100rpx !important;
+  line-height: 120rpx;
+}
+
+.weather-desc {
+  font-size: 30rpx;
 }
